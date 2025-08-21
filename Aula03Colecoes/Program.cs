@@ -11,7 +11,36 @@ namespace Aula03Colecoes
         static void Main(string[] args)
         {
             CriarLista();
-            ObterPorSalario();
+            ObterEstatisticas();
+        }
+
+        public static void ObterEstatisticas()
+        {
+            int qtdFunc = List.Count();
+
+            decimal somaSal = List.Sum(x => x.Salario);
+             
+            Console.WriteLine($"Existem {qtdFunc} funcionarios, cujo a soma de seus salarios resulta em: {somaSal}");
+        }
+
+        public static void ObterFuncionariosRecentes()
+        {
+            List.RemoveAll(x => x.Id <= 4);
+
+            List = List.OrderBy(x => x.Salario).ToList();
+            ExibirLista();
+        }
+
+        public static void ObterPorNome()
+        {
+            Console.WriteLine("Digite o nome do funcionario: ");
+            string nome = Console.ReadLine();
+            Funcionario fbusca = List.Find(x => x.Nome == nome);
+
+            if (fbusca == null)
+                Console.WriteLine("Não encontrado");
+            else
+                Console.WriteLine($"Funcionario encontrado! seu Id é: {fbusca.Id}");
         }
 
         public static void ObterPorSalario()
