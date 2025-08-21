@@ -11,6 +11,57 @@ namespace Aula03Colecoes
         static void Main(string[] args)
         {
             CriarLista();
+            ObterPorSalario();
+        }
+
+        public static void ObterPorSalario()
+        {
+            Console.WriteLine("Digite o valor minimo");
+            decimal salario = decimal.Parse(Console.ReadLine());
+            List = List.FindAll(x => x.Salario >= salario);
+            ExibirLista();
+        }
+
+        public static void ObterPorIdDigitado()
+        {
+            Console.WriteLine("Digite o Id");
+            int id = int.Parse(Console.ReadLine());
+            Funcionario fbusca = List.Find(x => x.Id == id);
+
+            if (fbusca == null)
+                Console.WriteLine("Não encontrado");
+            else
+                Console.WriteLine($"Funcionario encontrado: {fbusca.Nome}");
+        }
+
+        public static void AdicionarFuncionario()
+        {
+            Funcionario f = new Funcionario();
+
+            Console.WriteLine("Digite seu Id: ");
+            f.Id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite seu nome: ");
+            f.Nome = Console.ReadLine();
+            Console.WriteLine("Digite seu salario: ");
+            f.Salario = decimal.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a data de admissão: ");
+            f.DataAdmissao = DateTime.Parse(Console.ReadLine());
+            
+            if (string.IsNullOrEmpty(f.Nome)) {
+                Console.WriteLine("O nome deve ser preenchido");
+                return;
+            } else if (f.Salario == 0) {
+                Console.WriteLine("Valor do sálario não pode ser 0");
+                return;
+            } else {
+                List.Add(f);
+                ExibirLista();
+            }
+        }
+
+        public static void ObterPorID()
+        {
+            List = List.FindAll(x => x.Id == 1);
             ExibirLista();
         }
 
@@ -18,7 +69,7 @@ namespace Aula03Colecoes
         {
             string dados = "";
             for (int i = 0; i < List.Count; i++) {
-                dados += string.Format("Id: {0} \n", List[i].Id);
+                dados += string.Format("\nId: {0} \n", List[i].Id);
                 dados += string.Format("Nome: {0} \n", List[i].Nome);
                 dados += string.Format("CPF: {0} \n", List[i].Cpf);
                 dados += string.Format("Adimissao: {0:dd/MM/yyyy} \n", List[i].DataAdmissao);

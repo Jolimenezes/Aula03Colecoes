@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Jonatas2DS\\DS\\Aula03\\Aula03Colecoes\\Aula03Colecoes.csproj": {}
+    "D:\\Jonatas2DS\\Aula03Colecoes\\Aula03Colecoes\\Aula03Colecoes.csproj": {}
   },
   "projects": {
-    "D:\\Jonatas2DS\\DS\\Aula03\\Aula03Colecoes\\Aula03Colecoes.csproj": {
+    "D:\\Jonatas2DS\\Aula03Colecoes\\Aula03Colecoes\\Aula03Colecoes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Jonatas2DS\\DS\\Aula03\\Aula03Colecoes\\Aula03Colecoes.csproj",
+        "projectUniqueName": "D:\\Jonatas2DS\\Aula03Colecoes\\Aula03Colecoes\\Aula03Colecoes.csproj",
         "projectName": "Aula03Colecoes",
-        "projectPath": "D:\\Jonatas2DS\\DS\\Aula03\\Aula03Colecoes\\Aula03Colecoes.csproj",
+        "projectPath": "D:\\Jonatas2DS\\Aula03Colecoes\\Aula03Colecoes\\Aula03Colecoes.csproj",
         "packagesPath": "D:\\NugetPackages",
-        "outputPath": "D:\\Jonatas2DS\\DS\\Aula03\\Aula03Colecoes\\obj\\",
+        "outputPath": "D:\\Jonatas2DS\\Aula03Colecoes\\Aula03Colecoes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
