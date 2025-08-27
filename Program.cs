@@ -11,7 +11,104 @@ namespace Aula03Colecoes
         static void Main(string[] args)
         {
             CriarLista();
-            ObterEstatisticas();
+            ObterPorTipo();
+        }
+        
+        static void CalcularDescontoINSS()
+    {
+        Console.Write("Digite o valor do salário: ");
+            double salario = double.Parse(Console.ReadLine());
+            double desconto;
+
+            if (salario <= 1212.00)
+                desconto = salario * 0.075;
+            else if (salario <= 2427.35)
+                desconto = salario * 0.09;
+            else if (salario <= 3641.03)
+                desconto = salario * 0.12;
+            else if (salario <= 7087.22)
+                desconto = salario * 0.14;
+            else
+            {
+                desconto = salario * 0.14;
+            }
+
+            double salarioLiquido = salario - desconto;
+
+            Console.WriteLine($"Valor do INSS: R$ {desconto:F2}");
+            Console.WriteLine($"Salário líquido: R$ {salarioLiquido:F2}");
+        
+    }
+        static void DetalharData()
+        {
+            Console.WriteLine("Digite uma data (formato: dd/MM/yyyy):");
+            DateTime data = DateTime.Parse(Console.ReadLine());
+
+            string diaSemana = data.ToString("dddd");
+            string mes = data.ToString("MMMM");
+
+            Console.WriteLine($"Dia da semana: {diaSemana}");
+            Console.WriteLine($"Mês: {mes}");
+
+            // Se for domingo
+            if (data.DayOfWeek == DayOfWeek.Sunday)
+            {
+                Console.WriteLine($"Hoje é domingo! Hora atual: {DateTime.Now:HH:mm}");
+            }
+        }
+    
+        public static void ObterPorTipo()
+        {
+            Console.WriteLine("Digite o tipo do funcionario (1-CLT, 2-Aprendiz): ");
+            int fbusca = int.Parse(Console.ReadLine());
+            List = List.FindAll(x => (int)x.TipoFuncionario == fbusca);
+            ExibirLista();
+        }
+
+        public static void ValidarNome()
+        {
+            Funcionario f = new Funcionario();
+
+            Console.WriteLine("Digite seu Id: ");
+            f.Id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite seu nome: ");
+            f.Nome = Console.ReadLine();
+            while (f.Nome.Length < 2)
+            {
+                Console.WriteLine("Nome inválido. Digite seu nome novamente: ");
+                f.Nome = Console.ReadLine();
+            }
+
+            Console.WriteLine("Digite seu salario: ");
+            f.Salario = decimal.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a data de admissão: ");
+            f.DataAdmissao = DateTime.Parse(Console.ReadLine());
+        }
+
+        public static void ValidarSalarioAdmissao()
+        {
+            Funcionario f = new Funcionario();
+
+            Console.WriteLine("Digite seu Id: ");
+            f.Id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite seu nome: ");
+            f.Nome = Console.ReadLine();
+            Console.WriteLine("Digite seu salario: ");
+            f.Salario = decimal.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a data de admissão: ");
+            f.DataAdmissao = DateTime.Parse(Console.ReadLine());
+
+            if (f.Salario <= 0)
+            {
+                Console.WriteLine("Salário inválido.");
+                return;
+            }
+
+            if (f.DataAdmissao < DateTime.Now)
+            {
+                Console.WriteLine("Data de admissão inválida.");
+                return;
+            }
         }
 
         public static void ObterEstatisticas()
@@ -19,7 +116,7 @@ namespace Aula03Colecoes
             int qtdFunc = List.Count();
 
             decimal somaSal = List.Sum(x => x.Salario);
-             
+
             Console.WriteLine($"Existem {qtdFunc} funcionarios, cujo a soma de seus salarios resulta em: {somaSal}");
         }
 
