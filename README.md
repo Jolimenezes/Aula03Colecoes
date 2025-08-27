@@ -1,4 +1,4 @@
-# Jônatas Oliveira Menezes
+# Jônatas Oliveira Menezes E Angelo Abreu
 
 ## Exercicios aula 02
 ### Calc INSS
